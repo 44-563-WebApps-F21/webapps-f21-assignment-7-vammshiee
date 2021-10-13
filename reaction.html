@@ -13,7 +13,7 @@
 
 <body>
 
-  <h2>vammshiee - Red in 3 seconds</h2>
+  <h2>Vamshi Krishna thirunagari reaction timer</h2>
 
   <p id="starts">Your Time</p>
   <p id="countdown">count</p>
@@ -30,7 +30,7 @@
 
     function recordReact() {
       myTime = Date.now();
-      document.getElementById('starts').innerHTML = "Your time " + myTime;
+      document.getElementById('starts').innerHTML = "Time was " + myTime;
       console.log(myTime);
     }
 
@@ -38,7 +38,7 @@
       for (var i = 0; i < 3; i++) {
         var cd = Math.floor((Math.random() * 10) + 2);
         k = setTimeout(function () {
-          document.getElementById('countdown').innerHTML = i;
+          document.getElementById('countdown').innerHTML = "Count "+i;
         }, (cd - i) * 1000);
 
       }
