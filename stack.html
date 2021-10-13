@@ -95,6 +95,24 @@
 			}
 		}
 	}
+	function unique(){
+		var newArray = [];
+		var stackItems = document.getElementsByClassName("stack");
+		var length = stackItems.length;
+		var count_1 = 0;
+		for(var item=0;item< length;item++){
+			if(newArray.includes(stackItems[item-count_1].innerHTML)){
+				stackItems[item-count_1].remove();
+				count_1++;
+			}
+			else{
+				newArray.push(stackItems[item].innerHTML);
+			}
+		}
+		
+		console.log(newArray);
+	}
+
 </script>
 
 </html>
