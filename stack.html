@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		.flex-container {
+			display: flex;
+			flex-direction: row;
+			background-color: red;
+		}
+
+		.flex-container>div {
+			/*div children of the flex container*/
+			background-color: #f1f1f1;
+			margin: 10px;
+			padding: 20px;
+			font-size: 30px;
+		}
+
+		/* Responsive layout */
+		@media (max-width: 600px) {
+			.flex-container {
+				flex-direction: column;
+				background-color: green;
+			}
+		}
+	</style>
+</head>
+
+
+
+<body>
+	<h1>vammshiee builds a stack</h1>
+    <label for="text">Stack elements</label>
+    <input type="text" id="text" name="form1_text"> <br><br>
+
+	<div class="flex-container" id="target">
+		<div>row item 1</div>
+		<div>row item 2</div>
+		<div>row item 3</div>
+	</div>
+
+	<p> Press the button to create an new element of type div and then add it to the container.
+	</p>
+	<button onclick="makeNewDiv()">Add one</button>
+	<button onclick="popItem()">POP</button>
+	<button onclick="zap()">Zap values</button>
+	<button onclick="unique()">Unique</button>
+
+
+</body>
+<script>
+	 function makeNewDiv() {
+        const element = document.createElement("div");
+        element.innerHTML = document.getElementById("text").value;
+        element.setAttribute('class', 'stack');
+        element.style.color = "orange"
+
+        var stackItems = document.getElementsByClassName("stack");
+        len = stackItems.length;
+        var p = 0;
+        if (len > 8) {
+            for (var i = 0; i < 8; i++) {
+                if (listyItems[i].innerHTML == element.innerHTML) {
+                    listyItems[i].remove();
+                    console.log("We are getting rid of duplicates");
+                    p = 1;
+                    break;
+                }
+            }
+            if (p == 0) {
+                i = Math.floor((Math.random() * 9) + 0);
+                listyItems[i].remove();
+            }
+        }
+        document.getElementById('target').appendChild(element)
+    }
+	function popItem(){
+		var stackItems = document.getElementsByClassName("stack");
+		var stackItemsLength = stackItems.length;
+
+		if (stackItemsLength >0 ){
+			stackItems[stackItemsLength-1].remove();
+		}
+	}
+
+	function zap(){
+		var inputField = document.getElementById("text");
+		var field = inputField.value;
+		var stackItems = document.getElementsByClassName("stack");
+
+		for(var item=0;item< stackItems.length;item++){
+			if(stackItems[item].innerHTML == field){
+				stackItems[item].remove();
+			}
+		}
+	}
+</script>
+
+</html>
